@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0
+access_book_manager,Book Manager Access,model_library_book,library_group_manager,1,1,1,1
+
+access_catagories_user,catagories User Access,model_library_catagories,library_group_user,1,0,0,0
+access_catagories_manager,catagories Manager Access,model_library_catagories,library_group_manager,1,1,1,1
+access_publishers_user,publishers User Access,model_library_publishers,library_group_user,1,0,0,0
+access_publishers_manager,publishers Manager Access,model_library_publishers,library_group_manager,1,1,1,1

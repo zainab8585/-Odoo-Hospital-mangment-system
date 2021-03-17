@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="book_profile_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <!-- each report will start from new page -->
+                        <div class="page">
+                            <!-- general book information -->
+                            <group string="General Information">
+                                <br></br>
+                                <h4>General Book Information</h4>
+                                <table class="table-bordered" width="100%">
+                                    <tr>
+                                        <td>
+                                            <b>Name:</b>
+                                        </td>
+                                        <td width="50%">
+                                            <b><span t-field="o.name"/></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">
+                                            <b>sequence:</b>
+                                        </td>
+                                        <td>
+                                            <b><span t-field="o.sequence"/></b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b> Date Published:</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o. date_published"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Image:</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o.image"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Page Number</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o.pageno"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Language:</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o.language"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Book Type:</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o.book_type"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Publisher id:</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o.publisher_id"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <b>Catagory id</b>
+                                        </td>
+                                        <td width="50%">
+                                            <span t-field="o.catagory_id"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr></hr>
+                            </group>
+                            <!--author info-->
+                            <group string="Author info Details">
+                                <h4>Liprary Author Information</h4>
+                                <table class="table-bordered" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Title</th>
+                                            <th>User</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.author_ids" t-as="m">
+                                            <tr>
+                                                <td><span t-field="m.name"/></td>
+                                                <td><span t-field="m.title"/></td>
+                                                <td><span t-field="m.user_id "/></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <hr></hr>
+                            </group>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

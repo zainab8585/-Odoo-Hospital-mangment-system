@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odopo>
+    <data>
+
+		<!-- Report Definition, Book -->
+		<report
+			id="book_report"
+            string="Book Profile"
+            model="library.book"
+            report_type="qweb-pdf"
+            name="library_app.book_profile_template"
+		/>
+
+    </data>
+</odopo>

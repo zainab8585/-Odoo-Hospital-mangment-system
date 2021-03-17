@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="medical_patient_form_view_inherited">
+            <field name="name">medical.patient.form.view.inherited</field>
+            <field name="model">medical.patient</field>
+            <field name="inherit_id" ref="basic_hms.medical_patients_form_view"/>
+            <!-- <field name="groups_id" eval="[(6, 0, [ref('obe_core.obe_coordinator')])]"/> -->
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+<!--                    <br/>-->
+                    <field name="patient_second_name"/>
+                    <br/>
+                    <field name="patient_third_name"/>
+                    <br/>
+                    <field name="patient_fourth_name"/>
+                </xpath>
+
+<!--                 <xpath expr="//field[@name='partner_address_id']" position="after">-->
+
+<!--&lt;!&ndash;                    <field name="name"/>&ndash;&gt;-->
+<!--                </xpath>-->
+<!--                &lt;!&ndash;                <field name="patient_id" position="after">&ndash;&gt;-->
+                <!--                    <field name="patient_second_name"/>-->
+                <!--                    <field name="patient_third_name"/>-->
+                <!--                    <field name="name"/>-->
+            </field>
+        </record>
+    </data>
+</odoo>

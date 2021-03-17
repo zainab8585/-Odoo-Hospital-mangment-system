@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+        <record id="view_logout_form" model="ir.ui.view">
+            <field name="name">view.transfer.form</field>
+            <field name="model">hms.transfer</field>
+            <field name="arch" type="xml">
+                <form string="Patient Transfer">
+                    <sheet>
+                        <group>
+                            <group string="Transfer from ">
+                                <field name="Patient_Name" required="1"/>
+                                <br/>
+                                <field name="section_name"/>
+                                <br/>
+                                <field name="floor_name"/>
+                                <br/>
+                                <field name="room_name"/>
+                                <br/>
+                                <field name="beds_name"/>
+                                <br/>
+                                <!--                                <field name="no_of_patient_logout"/>-->
+                            </group>
+                            <group string="Transfer to ">
+                                <group colspan="5">
+                                    <field name="Patient_Name" required="1"/>
+                                    <field name="section_id" required="1"/>
+                                    <field name="floor_id" required="1"/>
+                                    <field name="room_ids" required="1"/>
+                                    <field name="beds_ids" required="1"/>
+                                </group>
+                            </group>
+                            <field name="date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_logout_tree" model="ir.ui.view">
+            <field name="name">view.treetransfer</field>
+            <field name="model">hms.transfer</field>
+            <field name="arch" type="xml">
+                <tree string="transfer_tree">
+                    <field name="Patient_Name"/>
+                    <field name="section_name"/>
+                    <field name="section_id"/>
+                    <field name="floor_name"/>
+                    <field name="floor_id"/>
+                    <field name="room_name"/>
+                    <field name="room_ids"/>
+                    <field name="beds_name"/>
+                    <field name="beds_ids"/>
+                    <!--                    <field name="no_of_patient_logout"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="action_transfer" model="ir.actions.act_window">
+            <field name="name">Transfer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.transfer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Patient trabsfer
+                    <!-- Add Text Here -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_transfer_action" name="Transfer" parent="basic_hms.main_menu_hospital_management"
+                  action="action_transfer" sequence="4"/>
+    </data>
+</odoo>

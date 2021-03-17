@@ -1,0 +1,46 @@
+<odoo>
+
+    <record id="view_form_publishers" model="ir.ui.view">
+        <field name="name">publishers Form</field>
+        <field name="model">library.publishers</field>
+        <field name="arch" type="xml">
+            <form string="Book publishers">
+                <sheet>
+                    <group>
+                        <group>
+                             <field name='name'/>
+<!--                            <tree>-->
+                                                            <field name="books_id"/>
+
+<!--                            </tree>-->
+                        </group>
+                          <group>
+                            <field name="type" attrs="{'invisible': [('parent_id','=', False)]}" groups="base.group_no_one"/>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+<!--                                <div attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}" class="oe_edit_only"><b>Company Address:</b></div>-->
+                                <field name="street"  placeholder="Street..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="city"  placeholder="City" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="state_id" style="width:50%" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'zip': zip}"/>
+                                <field name="zip" style="width:50%" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                            </div>
+                            <field name="parent_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_publishers" model="ir.ui.view">
+        <field name="name">publishers List</field>
+        <field name="model">library.publishers</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="books_id"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

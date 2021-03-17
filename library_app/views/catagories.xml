@@ -1,0 +1,29 @@
+<odoo>
+
+    <record id="view_form_catagories" model="ir.ui.view">
+        <field name="name">catagories Form</field>
+        <field name="model">library.catagories</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                <sheet>
+                    <group>
+                        <field name='name' style="width:50%"/>
+                        <field name="book_limit" style="width:50%"/>
+                        <field name="book_ids" style="width:50%"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_tree_catagories" model="ir.ui.view">
+        <field name="name">catagories List</field>
+        <field name="model">library.catagories</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="book_limit"/>
+                <field name="book_ids"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hms_section,access_hms_section,model_hms_section,base.group_user,1,1,1,1
+access_hms_floors,access_hms_floors,model_hms_floors,base.group_user,1,1,1,1
+access_hms_rooms,access_hms_rooms,model_hms_rooms,base.group_user,1,1,1,1
+access_hms_beds,access_hms_beds,model_hms_beds,base.group_user,1,1,1,1
+access_hms_entry,access_hms_entry,model_hms_entry,base.group_user,1,1,1,1
+access_hms_logout,access_hms_logout,model_hms_logout,base.group_user,1,1,1,1
+access_hms_transfer,access_hms_transfer,model_hms_transfer,base.group_user,1,1,1,1

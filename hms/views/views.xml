@@ -1,0 +1,284 @@
+<odoo>
+    <data>
+
+        <!--form section view-->
+        <record id="view_hms_form" model="ir.ui.view">
+            <field name="name">Hospital Section</field>
+            <field name="model">hms.section</field>
+            <field name="arch" type="xml">
+                <form string="Section">
+                    <sheet>
+                        <group name="data_section" string="Outpatient Clinic Information">
+                            <br/>
+                            <group>
+                                <label for="name" string="Clinic name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="enter section name  " required="1"/>
+                                </h1>
+                                <field name="code" placeholder="please enter the code" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--section tree view-->
+        <record id="view_hms_tree" model="ir.ui.view">
+            <field name="name">view.hms.section.tree</field>
+            <field name="model">hms.section</field>
+            <field name="arch" type="xml">
+                <tree string="Section">
+                    <field string="Clinic name" name="name"/>
+                    <field name="code" placeholder="please enter the code"/>
+                </tree>
+            </field>
+        </record>
+        <!--search section view-->
+        <record id="view_section_search" model="ir.ui.view">
+            <field name="name">view..search</field>
+            <field name="model">hms.section</field>
+            <field name="arch" type="xml">
+                <search string="section">
+                    <field name="name" domain="[()]"/>
+                    <field name="code" domain="[()]"/>
+                </search>
+            </field>
+        </record>
+        <!--   form floor view -->
+        <record id="view_floors_form" model="ir.ui.view">
+            <field name="name">view.floors.form</field>
+            <field name="model">hms.floors</field>
+            <field name="arch" type="xml">
+                <form string="Floors">
+                    <sheet>
+                        <group string="Floor data information">
+                            <br/>
+                            <group>
+                                <label for="name" string="Floor name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder=" enter name floor" required="1"/>
+                                </h1>
+                                <field name="code" placeholder="please enter the code" required="1"/>
+                                <field name="section_id" required="1"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        floor tree -->
+        <record id="view_floors_tree" model="ir.ui.view">
+            <field name="name">view.floors.tree</field>
+            <field name="model">hms.floors</field>
+            <field name="arch" type="xml">
+                <tree string="Floors">
+                    <field name="name" string="floor name"/>
+                    <field name="code"/>
+                    <field name="section_id"/>
+                </tree>
+            </field>
+        </record>
+        <!--search section view-->
+        <record id="view_section_search" model="ir.ui.view">
+            <field name="name">view..search</field>
+            <field name="model">hms.floors</field>
+            <field name="arch" type="xml">
+                <search string="section">
+                    <field name="name" domain="[()]"/>
+                    <field name="code" domain="[()]"/>
+                </search>
+            </field>
+        </record>
+
+        <!--room form view-->
+        <record id="view_rooms_form" model="ir.ui.view">
+            <field name="name">view.rooms.form</field>
+            <field name="model">hms.rooms</field>
+            <field name="arch" type="xml">
+                <form string="Rooms">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group string="The room information data">
+                            <br/>
+                            <group>
+                                <field name="code" placeholder="enter the code" required="1"/>
+                                <field name="floor_id" required="1"/>
+                                <field name="no_of_bed"/>
+                            </group>
+                            <group>
+                                <label for="name" string="Room name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="enter room name" required="1"/>
+                                </h1>
+                                <field name="type"/>
+                                <field name="price"/>
+                                <field name="notes"/>
+                            </group>
+                            <!--                            <field name="department_id"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        tree room view-->
+        <record id="view_rooms_tree" model="ir.ui.view">
+            <field name="name">view.rooms.tree</field>
+            <field name="model">hms.rooms</field>
+            <field name="arch" type="xml">
+                <tree string="Rooms" decoration-info="state=='free'" decoration-it="state=='free'"
+                      decoration-bf="state=='busy'" decoration-danger="state=='busy'">
+                    <field name="no_of_bed" string="Capacity"/>
+                    <field name="price"/>
+                    <field name="code"/>
+                    <field name="name" string="Room name"/>
+                    <field name="floor_id"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                    <!--                    <field name="state"/>-->
+                    <!--                    <field name="department_id"/>-->
+                </tree>
+            </field>
+        </record>
+        <!--        search room view-->
+        <record id="view_section_search" model="ir.ui.view">
+            <field name="name">view.beds.search</field>
+            <field name="model">hms.rooms</field>
+            <field name="arch" type="xml">
+                <search string="The room">
+                    <field name="name" domain="[()]"/>
+                    <field name="code" domain="[()]"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+        <!--bed form view-->
+        <record id="view_beds_form" model="ir.ui.view">
+            <field name="name">view.beds.form</field>
+            <field name="model">hms.beds</field>
+            <field name="arch" type="xml">
+                <form string="beds">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group string="Bed information data">
+                            <br/>
+                            <group>
+                                <label for="name" string="Bed name" class="oe_edit_only"/>
+                                <h1>
+                                    <field name="name" placeholder="please enter name bed" required="1"/>
+                                </h1>
+                                <field name="code" placeholder="enter the code " required="1"/>
+                                <field name="room_id"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- bed tree view -->
+        <record id="view_beds_tree" model="ir.ui.view">
+            <field name="name">view.beds.tree</field>
+            <field name="model">hms.beds</field>
+            <field name="arch" type="xml">
+                <tree string="beds" decoration-success="state=='free'" decoration-it="state=='free'"
+                      decoration-bf="state=='busy'" decoration-warning="state=='busy'">
+                    <field name="code"/>
+                    <field name="name" string="Bed name"/>
+                    <field name="room_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!--        search bed view -->
+        <record id="view_section_search" model="ir.ui.view">
+            <field name="name">view.beds.search</field>
+            <field name="model">hms.beds</field>
+            <field name="arch" type="xml">
+                <search string="The Beds">
+                    <field name="name" domain="[()]"/>
+                    <field name="code" domain="[()]"/>
+                    <field name="state"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!--        start  section action record-->
+        <record id="action_hms_section" model="ir.actions.act_window">
+            <field name="name">Outpatient Clinic Information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.section</field>
+            <field name="view_mode">tree,search,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Add new clinic
+                </p>
+            </field>
+        </record>
+        <!--action floors view -->
+        <record id="action_hms_floors" model="ir.actions.act_window">
+            <field name="name">Hospital Floors data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.floors</field>
+            <field name="view_mode">tree,search,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Define floor
+                </p>
+            </field>
+        </record>
+        <!--action room -->
+        <record id="action_hms_rooms" model="ir.actions.act_window">
+            <field name="name">Hospital Room data information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.rooms</field>
+            <field name="view_mode">tree,search,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Define new room
+                </p>
+            </field>
+        </record>
+        <!-- action bed view-->
+        <record id="action_hms_beds" model="ir.actions.act_window">
+            <field name="name">Hospital Bed data information</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.beds</field>
+            <field name="view_mode">tree,search,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Define new bed
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="menu_hospital_structure_root" name="Hospital Structure"
+                  parent="basic_hms.main_menu_hospital_management" sequence="2"/>
+        <menuitem id="menu_section_categ" name="Sections" parent="menu_hospital_structure_root" sequence="3"/>
+        <menuitem id="menu_floors_categ" name="Floors Section" parent="menu_hospital_structure_root" sequence="3"/>
+        <menuitem id="menu_rooms_categ" name="Rooms Section" parent="menu_hospital_structure_root" sequence="3"/>
+        <menuitem id="menu_beds_categ" name="Beds Section" parent="menu_hospital_structure_root" sequence="3"/>
+
+        <menuitem id="menu_section_action" name="Outpatient Clinic Department" parent="menu_section_categ"
+                  action="action_hms_section"
+                  sequence="1"/>
+
+        <menuitem id="menu_floors_action" name="The Floors" parent="menu_floors_categ" action="action_hms_floors"
+                  sequence="1"/>
+        <menuitem id="menu_rooms_action" name=" The Rooms" parent="menu_rooms_categ" action="action_hms_rooms"
+                  sequence="1"/>
+
+        <menuitem id="menu_beds_action" name="The Beds" parent="menu_beds_categ" action="action_hms_beds"
+                  sequence="1"/>
+
+<!--        <menuitem id="menu_entry_action" name="Entry" parent="basic_hms.main_menu_hospital_management"-->
+<!--                  action="action_hms_entry"-->
+<!--                  sequence="2"/>-->
+    </data>
+</odoo>

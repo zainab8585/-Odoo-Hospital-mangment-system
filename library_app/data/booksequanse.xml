@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sequence_self_book" model="ir.sequence">
+           <field name="name">Book Sequence</field>
+           <field name="code">library.book</field>
+           <field name="prefix">BS</field>
+           <field name="padding">2</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_form_book" model="ir.ui.view">
+        <field name="name">Book Form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                <header>
+                    <!--      <button name="button_check_isbn" type="object"-->
+                    <!--          string="Check ISBN" />-->
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" style="width:50%"/>
+                            <field name="author_ids" style="width:50%" widget="many2many_tags"/>
+                            <field name="date_published" style="width:50%"/>
+                            <field name="publisher_id" style="width:50%"/>
+                            <field name="pageno" style="width:50%"/>
+                            <field name="language" style="width:50%"/>
+                            <field name="book_type" style="width:50%" widget='selection'/>
+                        </group>
+                        <group>
+                            <field name="image" widget="image" class="oe_avatar"/>
+                        </group>
+                        <!--            <field name="isbn" />-->
+                        <!--            <field name="active" />-->
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_book" model="ir.ui.view">
+        <field name="name">Book List</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="author_ids" widget="many2many_tags"/>
+                <field name="publisher_id"/>
+                <field name="date_published"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  <record id="view_search_book" model="ir.ui.view">-->
+    <!--    <field name="name">Book Filters</field>-->
+    <!--    <field name="model">library.book</field>-->
+    <!--    <field name="arch" type="xml">-->
+    <!--    <search>-->
+    <!--      <field name="publisher_id"/>-->
+    <!--      <filter name="filter_inactive"-->
+    <!--              string="Inactive"-->
+    <!--              domain="[('active','=',True)]"/>-->
+    <!--      <filter name="filter_active"-->
+    <!--              string="Active"-->
+    <!--              domain="[('active','=',False)]"/>-->
+    <!--    </search>-->
+    <!--    </field>-->
+    <!--  </record>-->
+
+</odoo>

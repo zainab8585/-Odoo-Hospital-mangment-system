@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <record id="view_logout_form" model="ir.ui.view">
+            <field name="name">view.logout.form</field>
+            <field name="model">hms.logout</field>
+            <field name="arch" type="xml">
+                <form string="Patient Logout">
+                    <sheet>
+                        <group>
+                            <group string="patient Logout">
+                                <field name="Patient_Name" required="1"/>
+                                <br/>
+                                <field name="section_name"/>
+                                <br/>
+                                <field name="floor_name"/>
+                                <br/>
+                                <field name="room_name"/>
+                                <br/>
+                                <field name="beds_name"/>
+                                <br/>
+<!--                                <field  name="The_rest"/>-->
+<!--                                <field name="date"/>-->
+<!--                                <field name="no_of_patient_logout"/>-->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_logout_tree" model="ir.ui.view">
+            <field name="name">view.treelogout</field>
+            <field name="model">hms.logout</field>
+            <field name="arch" type="xml">
+                <tree string="Logout_tree">
+                    <field name="Patient_Name"/>
+                    <field name="floor_name"/>
+                    <field name="room_name"/>
+                    <field name="beds_name"/>
+<!--                    <field name="no_of_patient_logout"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_logout" model="ir.actions.act_window">
+            <field name="name">Logout</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.logout</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Patient logout
+                    <!-- Add Text Here -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_logout_action" name="Logout" parent="basic_hms.main_menu_hospital_management"
+                  action="action_logout" sequence="3"/>
+    </data>
+</odoo>

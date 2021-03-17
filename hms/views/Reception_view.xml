@@ -1,0 +1,94 @@
+<odoo>
+    <data>
+        <!-- start   Reception form view-->
+        <record id="view_entry_form" model="ir.ui.view">
+            <field name="name">view.Reception.form</field>
+            <field name="model">hms.entry</field>
+            <field name="arch" type="xml">
+                <form string="Reception">
+                      <header>
+                        <!--The oe_highlight class gives the button a red color when it is saved.
+                        It is usually used to indicate the expected behaviour. -->
+<!--                        <button -->
+<!--                                name="%(action_logout)d"-->
+<!--                                string="Patient Logout"-->
+<!--                                type="action"-->
+<!--                        class="oe_highlight"/>-->
+<!--                          <button name="%(action_transfer)d"-->
+<!--                                string="Patient Transfer"-->
+<!--                                type="action"-->
+<!--                        class="oe_highlight"/>-->
+<!--                        <button string="Generate name" type="object" name="generate_record_name"/>-->
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Patient Record">
+                                <field name="Patient_Name" required="1"/>
+                                <!--                            <field name="Patient_Address"/>-->
+                                <field name="section_id" required="1"/>
+                                <field name="floor_id" required="1"/>
+                                <field name="room_ids" required="1"/>
+                                <field name="beds_ids" required="1"/>
+                            </group>
+                            <group string="The required service ">
+                                <group>
+                                    <field name="Service" required="1" widget="radio"/>
+                                </group>
+                                <group>
+                                    <field name="Reservation_type" required="1" widget="radio"/>
+                                </group>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Financial inquiries">
+                                <field name="price"/>
+                                <!--                                    <br/>-->
+                                <field name="total"/>
+                                <!--                                    <br/>-->
+                                <field name="paid_up" required="1"/>
+                                <!--                                    <br/>-->
+                                <field name="The_rest"/>
+                                <!--                                    <br/>-->
+                                <field name="date" required="1"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        end Reception form -->
+        <!--        tree entry view-->
+        <record id="view_entry_tree" model="ir.ui.view">
+            <field name="name">view.entry.tree</field>
+            <field name="model">hms.entry</field>
+            <field name="arch" type="xml">
+                <tree string="Entry">
+                    <field name="Patient_Name"/>
+                    <field name="section_id" required="1"/>
+                    <field name="floor_id" required="1"/>
+                    <field name="room_ids"/>
+                    <field name="beds_ids"/>
+                </tree>
+            </field>
+        </record>
+        <!--    end reception tree view-->
+        <!--     start   action reception -->
+        <record id="action_hms_entry" model="ir.actions.act_window">
+            <field name="name">Reception</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hms.entry</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    create new patient
+                </p>
+            </field>
+        </record>
+        <!--        end action reception view-->
+        <!--        start reception sub menu -->
+        <menuitem id="menu_entry_action" name="Reception" parent="basic_hms.main_menu_hospital_management"
+                  action="action_hms_entry"
+                  sequence="2"/>
+    </data>
+</odoo>

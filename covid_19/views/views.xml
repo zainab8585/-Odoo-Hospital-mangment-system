@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="covid_19.list">
+            <field name="name">covid_19 list</field>
+            <field name="model">covid_19.covid_19</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="source"/>
+                    <field name="date"/>
+                    <field name="country_id"/>
+                    <field name="infected"/>
+                    <field name="recovered"/>
+                    <field name="deceased"/>
+                    <field name="total_infected"/>
+                    <field name="total_recovered"/>
+                    <field name="total_deceased"/>
+                </tree>
+            </field>
+        </record>
+        <!--    start form view-->
+        <record id="view_covid_19_form" model="ir.ui.view">
+            <field name="name">covid_19.form</field>
+            <field name="model">covid_19.covid_19</field>
+            <field name="arch" type="xml">
+                <form string="covid_19">
+                    <sheet>
+                        <group>
+                            <field name="source"/>
+                            <field name="date"/>
+                            <field name="country_id"/>
+                            <field name="infected"/>
+                            <field name="recovered"/>
+                            <field name="deceased"/>
+                            <field name="total_infected"/>
+                            <field name="total_recovered"/>
+                            <field name="total_deceased"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+<!--    end form view-->
+        <!--    start advance view -->
+        <!--    start calender view -->
+        <record id="view_covid_19_calendar" model="ir.ui.view">
+            <field name="name">covid_19.calendar</field>
+            <field name="model">covid_19.covid_19</field>
+            <field name="arch" type="xml">
+                <calendar string="Covid 19 " date_start="date">
+                    <field name="country_id"/>
+                    <field name="infected"/>
+                </calendar>
+            </field>
+        </record>
+        <!--    end calender view-->
+        <!--    start graph view -->
+        <record id="view_covid_19_graph" model="ir.ui.view">
+            <field name="name">view.covid_19.graph</field>
+            <field name="model">covid_19.covid_19</field>
+            <field name="arch" type="xml">
+                <graph string="Covid 19">
+                    <field name="country_id"/>
+                    <field name="infected" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <!--    end graph view -->
+        <!--    start pivot view-->
+        <record id="view_covid_19_pivot" model="ir.ui.view">
+            <field name="name">view.covid_19.pivot</field>
+            <field name="model">covid_19.covid_19</field>
+            <field name="arch" type="xml">
+                <pivot string="Covid 19">
+                    <field name="date" type="row"/>
+                    <field name="country_id" type="row"/>
+                    <field name="infected" type="measure"/>
+                    <field name="recovered" type="measure"/>
+                    <field name="deceased" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <!--    end pivot view-->
+        <!--    end advance view-->
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="covid_19.action_window">
+            <field name="name">Register covid_19</field>
+            <field name="res_model">covid_19.covid_19</field>
+            <field name="view_mode">tree,form,calendar,graph,pivot</field>
+        </record>
+
+        <menuitem name="COVID_19" web_icon="covid_19,static/description/corona.png" id="covid_19.menu_root"
+                 parent="basic_hms.main_menu_hospital_management"/>
+        <!-- menu categories -->
+        <menuitem name="Registro" id="covid_19.menu_1" parent="covid_19.menu_root" action="covid_19.action_window"/>
+    </data>
+</odoo>
